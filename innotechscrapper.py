@@ -29,14 +29,14 @@ chwv_pattern = re.compile(".*Tank CHWV$")
 
 
 def click_id(driver, element_id):
-    WebDriverWait(driver, 10).until(
+    WebDriverWait(driver, 30).until(
         EC.element_to_be_clickable((By.ID,element_id))
     )
     input_element = driver.find_element(By.ID,element_id)
     input_element.click()
 
 def click_classname(driver, element_classname):
-    WebDriverWait(driver, 10).until(
+    WebDriverWait(driver, 30).until(
         EC.element_to_be_clickable((By.CLASS_NAME,element_classname))
     )
     input_element = driver.find_element(By.CLASS_NAME,element_classname)
@@ -44,7 +44,7 @@ def click_classname(driver, element_classname):
 
 
 def textbox_name(driver, element_name, keys):
-    WebDriverWait(driver, 10).until(
+    WebDriverWait(driver, 30).until(
         EC.presence_of_element_located((By.NAME,element_name))
     )
     input_element = driver.find_element(By.NAME,element_name)
@@ -55,20 +55,20 @@ def textbox_name(driver, element_name, keys):
         input_element.send_keys(keys)
 
 def logout(driver):
-    WebDriverWait(driver, 10).until(
+    WebDriverWait(driver, 30).until(
         EC.element_to_be_clickable((By.XPATH, "//div[@class='avatar-wrapper el-dropdown-selfdefine']"))
     )
     input_element = driver.find_element(By.XPATH, "//div[@class='avatar-wrapper el-dropdown-selfdefine']")
     input_element.click()
 
-    WebDriverWait(driver, 10).until(
+    WebDriverWait(driver, 30).until(
         EC.element_to_be_clickable((By.XPATH,"//span[normalize-space()='Log Out']"))
     )
     input_element = driver.find_element(By.XPATH,"//span[normalize-space()='Log Out']")
     input_element.click()
 
     #wait until login page finish loading
-    WebDriverWait(driver, 10).until(
+    WebDriverWait(driver, 30).until(
         EC.presence_of_element_located((By.NAME,"UserName"))
     )
 
@@ -126,7 +126,7 @@ def main():
             textbox_name(driver, "Password", credential[1])
     
             #get tank name from side menu
-            menu = WebDriverWait(driver, 10).until(
+            menu = WebDriverWait(driver, 30).until(
                 EC.presence_of_element_located((By.CSS_SELECTOR, ".el-submenu.is-active.is-opened"))
             )
             menu_items = menu.find_elements(By.XPATH,".//span")
@@ -136,11 +136,11 @@ def main():
                 if tank_menu_item_pattern.match(item.get_attribute('innerHTML')):
                     item.click()
                     #wait until loading finished
-                    WebDriverWait(driver, 10).until(
+                    WebDriverWait(driver, 30).until(
                         EC.invisibility_of_element_located((By.CSS_SELECTOR, ".el-loading-mask"))
                     )
                     #wait until value load
-                    WebDriverWait(driver, 10).until(
+                    WebDriverWait(driver, 30).until(
                         EC.presence_of_element_located((By.CSS_SELECTOR, ".watch-value.el-col.el-col-8"))
                     )
                     html_source = driver.page_source
