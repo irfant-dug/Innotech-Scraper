@@ -1,0 +1,9 @@
+[Unit] 
+Description=Innotech Web Scraper 
+After=network-online.target innotech_scraper_api.service 
+Requires=innotech_scraper_api.service 
+
+[Service]
+User=innotech_scraper 
+WorkingDirectory=/opt/innotech_scraper 
+ExecStart=/opt/innotech_scraper/selenium-env/bin/python innotechscraper.py 
