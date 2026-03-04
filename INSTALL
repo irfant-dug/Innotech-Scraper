@@ -1,3 +1,4 @@
+dnf install google-chrome
 useradd innotech_scraper
 mkdir -p /opt/innotech_scraper
 install -o innotech_scraper -g innotech_scraper innotechscraper.py /opt/innotech_scraper/

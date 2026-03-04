@@ -110,6 +110,7 @@ def main():
     service = Service(executable_path=os.getenv('CHROMEDRIVER_LOCATION'))
     options = Options()
     options.add_argument('--headless=new')  #comment for display mode
+    options.add_argument("--user-data-dir=/tmp/innotech-scraper-user-data")
     options.add_argument('--ignore-ssl-errors=yes')
     options.add_argument('--ignore-certificate-errors')
     driver = webdriver.Chrome(service=service, options=options)

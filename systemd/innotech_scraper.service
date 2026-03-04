@@ -7,3 +7,4 @@ Requires=innotech_scraper_api.service
 User=innotech_scraper 
 WorkingDirectory=/opt/innotech_scraper 
 ExecStart=/opt/innotech_scraper/selenium-env/bin/python innotechscraper.py 
+ExecStop=/usr/bin/rm -rf /tmp/innotech-scraper-user-data
