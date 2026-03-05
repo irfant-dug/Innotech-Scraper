@@ -2,6 +2,8 @@ This python scripts is used to scrap tank temperature and chwv value from Innote
 
 Usage:
 
+dotenv - Change monitoring sites credentials
+
 INSTALL - Run as sudo. Will create innotech_scraper and innotech_scraper_api systemd unit
 
 UPDATE - Run as sudo. Will update dotenv
