@@ -1,4 +1,4 @@
-dnf install google-chrome-stable -y
+dnf install google-chrome-stable python3.9 -y
 useradd innotech_scraper
 mkdir -p /opt/innotech_scraper
 
@@ -9,7 +9,7 @@ install -o root -g root systemd/innotech_scraper_api.service /etc/systemd/system
 install -o root -g root systemd/innotech_scraper.timer /etc/systemd/system/
 install -o root -g root systemd/innotech_scraper.service /etc/systemd/system/
 
-python3 -m venv /opt/innotech_scraper/selenium-env
+python3.9 -m venv /opt/innotech_scraper/selenium-env
 mkdir -p /opt/innotech_scraper/chrome
 wget -P /opt/innotech_scraper/chrome https://storage.googleapis.com/chrome-for-testing-public/146.0.7680.31/linux64/chrome-linux64.zip && \
 unzip -o /opt/innotech_scraper/chrome/chrome-linux64.zip -d /opt/innotech_scraper/chrome/
